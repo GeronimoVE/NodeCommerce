@@ -3,7 +3,7 @@ const app = require('../app');
 const Product = require('../models/Product');
 const ProductImage = require('../models/ProductImage');
 const Category = require('../models/Category');
-//const User = require('../models/User');
+const User = require('../models/User');
 require('../models');
 
 let productId;
@@ -11,7 +11,7 @@ let token;
 
 beforeAll(async() => {
     const credentials = {
-        email: "test@gmail.com",
+        email: "test@migrate.com",
         password: "test1234"
     }
     const res = await request(app)

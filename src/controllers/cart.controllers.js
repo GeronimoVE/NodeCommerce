@@ -4,7 +4,11 @@ const Product = require('../models/Product');
 //const Category = require('../models/Category');
 
 const getAll = catchError(async(req, res) => {
-    const results = await Cart.findAll();
+    const userId = req.user.id;
+    const results = await Cart.findAll({ 
+        include: [Product],
+        where: {userId}
+     });
     return res.json(results);
 });
 
@@ -15,7 +19,7 @@ const create = catchError(async(req, res) => {
 
 const getOne = catchError(async(req, res) => {
     const { id } = req.params;
-    const result = await Cart.findByPk(id);
+    const result = await Cart.findByPk(id, { include: [Product] });
     if(!result) return res.sendStatus(404);
     return res.json(result);
 });

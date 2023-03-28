@@ -8,9 +8,9 @@ let token;
 
 test("POST /user should create a user", async() => {
     const newUser = {
-        firstName: "José",
-        lastName: "Ruiz ",
-        email: "geronimoruiz@gmail.com",
+        firstName: "User",
+        lastName: "Test",
+        email: "user@test.com",
         password: "pass1234",
         phone: "+584263167673"
     }
@@ -23,7 +23,7 @@ test("POST /user should create a user", async() => {
 
 test("POST /users/login should do login", async() => {
     const user = {
-        email: "geronimoruiz@gmail.com",
+        email: "user@test.com",
         password: "pass1234"
     }
     const res = await request(app)
