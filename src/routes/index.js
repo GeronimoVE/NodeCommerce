@@ -1,5 +1,5 @@
 const express = require('express');
-//const cartRouter = require('./cart.router');
+const cartRouter = require('./cart.router');
 const categoryRouter = require('./category.router');
 const productRouter = require('./product.router');
 const productImageRouter = require('./productImage.router');
@@ -12,8 +12,7 @@ require('../models');
 router.use('/users', userRouter)
 router.use('/categories', categoryRouter)
 router.use('/products', productRouter)
-//router.use('/carts', cartRouter)
+router.use('/carts', cartRouter)
 router.use('/productimages', productImageRouter)
-
 
 module.exports = router;

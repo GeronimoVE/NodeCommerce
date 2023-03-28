@@ -51,16 +51,8 @@ test("PUT /products/:id should update a product", async() => {
     expect(res.body.title).toBe(body.title);
 })
 
-test("DELETE /products/:id should delete a product", async() => {
-    const res = await request(app)
-        .delete(`/products/${productId}`)
-        .set('Authorization', `Bearer ${token}`);
-    expect(res.status).toBe(204);
-})
-
 test("POST /products/:id/images should set products images", async() => {
-    const image = await ProductImage.create({url: "urltest", filename: "fietest"});
-                        console.log(image);
+    const image = await ProductImage.create({url: "urltest", filename: "filetest"});
     const res = await request(app)
         .post(`/products/${productId}/images`)
         .set('Authorization', `Bearer ${token}`)
@@ -68,4 +60,11 @@ test("POST /products/:id/images should set products images", async() => {
     await image.destroy();
     expect(res.status).toBe(200);
     expect(res.body).toHaveLength(1);
+})
+
+test("DELETE /products/:id should delete a product", async() => {
+    const res = await request(app)
+        .delete(`/products/${productId}`)
+        .set('Authorization', `Bearer ${token}`);
+    expect(res.status).toBe(204);
 })

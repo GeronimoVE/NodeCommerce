@@ -1,5 +1,6 @@
 const catchError = require('../utils/catchError');
 const Product = require('../models/Product');
+const ProductImage = require('../models/ProductImage');
 const fs = require('fs');
 const path = require('path');
 
