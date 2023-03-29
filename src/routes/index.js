@@ -6,7 +6,7 @@ const productImageRouter = require('./productImage.router');
 const purchaseRouter = require('./purchase.router');
 const userRouter = require('./user.router');
 const router = express.Router();
-require('../models');
+//require('../models');
 
 
 // colocar las rutas aquí

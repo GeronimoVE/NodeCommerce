@@ -44,6 +44,15 @@ const setProductImags = catchError(async(req, res) => {
     const productImgs = await product.getProductImages()
     return res.json(productImgs);
 })
+/*
+const setProductCategories = catchError(async(req, res) => {
+    const { id } = req.params
+    const product = await Product.findByPk(id)
+    if(!product) return res.sendStatus(404)
+    await product.setCategorys(req.body)
+    const productCats = await product.getCategorys()
+    return res.json(productCats);
+})*/
 
 module.exports = {
     getAll,
@@ -51,5 +60,6 @@ module.exports = {
     getOne,
     remove,
     update,
-    setProductImags
+    setProductImags /*,
+    setProductCategories*/
 }

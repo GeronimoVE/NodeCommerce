@@ -1,4 +1,4 @@
-const { getAll, create, getOne, remove, update, setProductImags } = require('../controllers/product.controllers');
+const { getAll, create, getOne, remove, update, setProductImags /*, setProductCategories*/ } = require('../controllers/product.controllers');
 const express = require('express');
 const verifyJWT = require('../utils/verifyJWT');
 
@@ -14,6 +14,7 @@ productRouter.route('/:id')
     .put(verifyJWT, update);
 
 productRouter.route('/:id/images')
-    .post(verifyJWT, setProductImags)
+    .post(verifyJWT, setProductImags); /*
+    .post(verifyJWT, setProductCategories);*/
 
 module.exports = productRouter;

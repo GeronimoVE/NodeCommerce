@@ -5,9 +5,13 @@ const Product = require('./Product');
 const ProductImage = require('./ProductImage');
 const Purchase = require('./purchase');
 const User = require('./User');
-
+require('../models');
+/*
 Product.belongsToMany(Category, {through: 'ProductsCategories'});
 Category.belongsToMany(Product, {through: 'ProductsCategories'});
+*/
+Product.belongsTo(Category);
+Category.hasMany(Product);
 
 ProductImage.belongsTo(Product);
 Product.hasMany(ProductImage);
