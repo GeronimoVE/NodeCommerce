@@ -35,11 +35,9 @@ test("POST carts should create one cart product", async() => {
     };
 
     const res = await request(app)
-        .post('./carts').send(cart)
+        .post('/carts').send(cart)
         .set('Authorization', `Bearer ${token}`);
         cartId = res.body.id;
-                     console.log(cartId);
-
     await product.destroy();
     expect(res.status).toBe(201);
     expect(res.body.quantity).toBe(cart.quantity);
@@ -52,8 +50,19 @@ test("GET /carts should return all carts", async() => {
         expect(res.body).toHaveLength(1);
 })
 
+test("PUT /carts/:id should update a cart product", async() => {
+    const body = {
+        quantity: 88
+    }
+    const res = await request(app)
+        .put(`/carts/${cartId}`)
+        .set('Authorization', `Bearer ${token}`)
+        .send(body);
+    expect(res.status).toBe(200);
+    expect(res.body.quantity).toBe(body.quantity);
+})
+
 test("DELETE /carts/:id should delete a cart product", async() => {
-    console.log(cartId);
     const res = await request(app)
         .delete(`/carts/${cartId}`)
         .set('Authorization', `Bearer ${token}`);

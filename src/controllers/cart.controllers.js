@@ -13,6 +13,7 @@ const getAll = catchError(async(req, res) => {
 });
 
 const create = catchError(async(req, res) => {
+    req.body.userId = req.user.id;
     const result = await Cart.create(req.body);
     return res.status(201).json(result);
 });
