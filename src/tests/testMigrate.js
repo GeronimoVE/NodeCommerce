@@ -16,7 +16,7 @@ const main = async() => {
             firstName: "test",
             lastName: "User",
             email: "test@migrate.com",
-            password: "test1234",
+            password: "pass1234",
             phone: "1234567890"
         })
         

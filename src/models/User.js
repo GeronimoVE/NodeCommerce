@@ -32,7 +32,6 @@ User.beforeCreate ( async(user) => {
     //const securedPass = await bcrypt.hash(user.password, 10);
     //user.password = securedPass;
 })
-
 User.prototype.toJSON = function () {
     const values = Object.assign({}, this.get());
     delete values.password;

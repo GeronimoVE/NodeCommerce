@@ -37,7 +37,7 @@ test("POST /users/login should do login", async() => {
 test("POST /users/login with invalid credentials should return 401", async() => {
     const user = {
         email: "geronimoruiz@gmail.com",
-        password: "pass12345"
+        password: "pass1234"
     }
     const res = await request(app)
         .post('/users/login').send(user);
